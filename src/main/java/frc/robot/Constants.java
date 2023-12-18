@@ -29,8 +29,16 @@ public final class Constants {
     /** Replaying from a log file. */
     REPLAY
   }
+// elavator   
+  public static class Elevator {
+// physical constants idk
+    public static class PhysicalConstants{
 
-  public static class Drivetrain {
+    }
+
+  }
+
+    public static class Drivetrain {
     // drivetrain constants
     public static double DRIVE_TRACK_WIDTH_M = 0.86;// 0.66; // m
     public static double DRIVE_WHEEL_DIAM_M = 0.1524; // m
@@ -99,6 +107,8 @@ public final class Constants {
   };
 
   public static class ElectricalLayout {
+    // Elevator
+    public final static int ELEVATOR_MOTOR_ID = 5;
     // Controllers
     public final static int CONTROLLER_DRIVER_ID = 0;
     public final static int CONTROLLER_OPERATOR_ID = 1;
