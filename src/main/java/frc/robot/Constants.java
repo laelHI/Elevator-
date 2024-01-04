@@ -35,11 +35,8 @@ public final class Constants {
     public static class ElevatorPhysicalConstants{
 
     }
-    public static class ElevatorSimConstants{
-    }
     
-
-  }
+}
 
     public static class Drivetrain {
     // drivetrain constants
