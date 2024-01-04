@@ -32,9 +32,12 @@ public final class Constants {
 // elavator   
   public static class Elevator {
 // physical constants idk
-    public static class PhysicalConstants{
+    public static class ElevatorPhysicalConstants{
 
     }
+    public static class ElevatorSimConstants{
+    }
+    
 
   }
 
