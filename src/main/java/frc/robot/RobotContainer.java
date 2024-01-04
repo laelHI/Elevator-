@@ -117,10 +117,12 @@ public class RobotContainer {
     CommandScheduler.getInstance().getActiveButtonLoop().clear();
     drive.setDefaultCommand(
         new RunCommand(() -> drive.driveArcade(driver.getDriveForward(), driver.getDriveTurn()), drive));
-
     // bind button commands
-
+    operator.getY().onTrue(elevator.PIDCommand(ElevatorPhysicalConstants.ELEVATOR_SETPOINT_EXTEND));
+    operator.getA().onTrue(elevator.PIDCommand(ElevatorPhysicalConstants.ELEVATOR_SETPOINT_RETRACT));
+    
     // cancel trajectory
+    
     driver.getY().onTrue(drive.endTrajectoryCommand());
   }
 
