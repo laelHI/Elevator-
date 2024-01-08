@@ -14,7 +14,7 @@ import edu.wpi.first.wpilibj.simulation.EncoderSim;
 import static frc.robot.Constants.Elevator.ElevatorSimConstants.*;
 
 public class ElevatorIOSim implements ElevatorIO {
-//creates the object variable ElevatorSim, which includes data for the listed items
+//creates the object variable ProfiledPIDController, which includes data values for the listed items 
     private final ProfiledPIDController m_controller =
         new ProfiledPIDController(
             kElevatorKp,
@@ -36,7 +36,7 @@ public class ElevatorIOSim implements ElevatorIO {
 
     private final Encoder m_encoder = new Encoder(kEncoderAChannel, kEncoderBChannel);
 
-//creates the object variable ElevatorSim, which includes data for the listed items
+//creates the object variable ElevatorSim, which includes data values for the listed items
     private final ElevatorSim sim =
         new ElevatorSim(
             m_elevatorGearbox,
