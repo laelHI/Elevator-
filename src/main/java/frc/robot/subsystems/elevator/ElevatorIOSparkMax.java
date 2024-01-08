@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.DutyCycleEncoder;
 import com.revrobotics.CANSparkMax.ControlType;
 import com.revrobotics.CANSparkMax.IdleMode;
 
-//references constants needed throughout the system
+//references all constants needed throughout the system
 import static frc.robot.Constants.ElectricalLayout.*;
 import static frc.robot.Constants.*;
 import static frc.robot.Constants.Elevator.ElevatorPhysicalConstants.*;
