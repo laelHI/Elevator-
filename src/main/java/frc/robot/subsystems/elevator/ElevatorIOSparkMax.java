@@ -1,5 +1,6 @@
-package frc.robot.subsystems.elevator;
+package frc.robot.subsystems.elevator; //defines the package for this class
 
+//imports all the external libraries which interact with the robot
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.SparkMaxPIDController;
@@ -10,6 +11,7 @@ import edu.wpi.first.wpilibj.DutyCycleEncoder;
 import com.revrobotics.CANSparkMax.ControlType;
 import com.revrobotics.CANSparkMax.IdleMode;
 
+//references constants needed throughout the system
 import static frc.robot.Constants.ElectricalLayout.*;
 import static frc.robot.Constants.*;
 import static frc.robot.Constants.Elevator.ElevatorPhysicalConstants.*;
@@ -22,7 +24,9 @@ public class ElevatorIOSparkMax implements ElevatorIO {
     private DutyCycleEncoder absoluteEncoder;
 
     private double setpoint = 0;
-
+/*Various motors and encoders are initialized, using the previously defined constants.
+This sets defaults, factors, and configures motor type
+*/
     public ElevatorIOSparkMax() {
         elevatorMotor = new CANSparkMax(ELEVATOR_MOTOR_ID, MotorType.kBrushless);
         elevatorMotor.restoreFactoryDefaults();
@@ -44,6 +48,7 @@ public class ElevatorIOSparkMax implements ElevatorIO {
         encoder.setPosition(absoluteEncoder.getDistance() * 28.45 + 0.6);
     }
 
+//update the pidController using the provided values for proportional, integral, and derivative 
     @Override
     public void setPIDConstants(double p, double i, double d, double ff) {
         pidController.setP(p);
@@ -81,11 +86,14 @@ public class ElevatorIOSparkMax implements ElevatorIO {
         pidController.setReference(setpoint, CANSparkMax.ControlType.kPosition);
     }
 
+/*if the break parameter is TRUE, IdleMode.kBrake will be returned. If the parameter is FALSE,
+it is set to Coast*/
     @Override
     public void setBrake(boolean brake) {
         elevatorMotor.setIdleMode(brake ? IdleMode.kBrake : IdleMode.kCoast);
     }
 
+//returns TRUE or FALSE depending on where the current position is relative to the set point
     @Override
     public boolean atSetpoint() {
         return Math.abs(encoder.getPosition() - setpoint) < ELEVATOR_PID_TOLERANCE;
